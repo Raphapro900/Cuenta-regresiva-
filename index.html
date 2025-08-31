@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuenta Regresiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #111;
+      color: #fff;
+      padding-top: 100px;
+    }
+    #countdown {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    #videoContainer {
+      display: none;
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="countdown">10</div>
+
+  <div id="videoContainer">
+    <iframe src="https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    let seconds = 10;
+    const countdownEl = document.getElementById("countdown");
+    const videoContainer = document.getElementById("videoContainer");
+
+    const timer = setInterval(() => {
+      seconds--;
+      countdownEl.textContent = seconds;
+
+      if (seconds <= 0) {
+        clearInterval(timer);
+        countdownEl.style.display = "none";
+        videoContainer.style.display = "block";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
